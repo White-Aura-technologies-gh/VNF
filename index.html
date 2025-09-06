@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visionary Norman Foundation | Empowering Youth, Transforming Communities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #0052CC;
+            --red: #E63946;
+            --green: #7BC043;
+            --teal: #00AEEF;
+            --navy: #0A1A2F;
+            --gray: #F5F7FA;
+            --white: #FFFFFF;
+            --text: #333333;
+            --text-light: #5A6A85;
+            --shadow: 0 5px 15px rgba(10, 26, 47, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--blue);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--teal);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-red {
+            background-color: var(--red);
+        }
+
+        .btn-red:hover {
+            background-color: #c1121f;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--blue);
+            color: white;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .bg-gray {
+            background-color: var(--gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--navy);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--teal);
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .logo span {
+            color: var(--teal);
+            font-size: 18px;
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--white);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--teal);
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            color: var(--navy);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--gray);
+            color: var(--blue);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Hero Section with Carousel */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.8) 0%, rgba(0, 174, 239, 0.8) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Intro Section */
+        .intro {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        /* Mission & Vision Section - Made Responsive */
+        .mission-vision {
+            background-color: var(--gray);
+        }
+
+        .mv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mv-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mv-icon {
+            font-size: 2.5rem;
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .mv-title {
+            color: var(--blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .mv-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .leader-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .leader-card:nth-child(1).animate {
+            transition-delay: 0.1s;
+        }
+
+        .leader-card:nth-child(2).animate {
+            transition-delay: 0.2s;
+        }
+
+        .leader-card:nth-child(3).animate {
+            transition-delay: 0.3s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .leader-img {
+            height: 280px;
+            background-color: #BDC3C7;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .leader-content {
+            padding: 25px;
+        }
+
+        .leader-name {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--navy);
+        }
+
+        .leader-role {
+            color: var(--teal);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .leader-bio {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .leader-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--navy);
+        }
+
+        .social-link:hover {
+            background: var(--teal);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-img {
+            height: 200px;
+            background-color: var(--gray);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .program-img:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--blue), var(--teal));
+        }
+
+        .program-content {
+            padding: 25px;
+        }
+
+        .program-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+
+        .program-desc {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Scholarship Teaser */
+        .scholarship-teaser {
+            background: linear-gradient(to right, var(--blue), var(--teal));
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .scholarship-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .scholarship-title {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .scholarship-text {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Blog Section - Made Responsive */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            height: 200px;
+            background-color: #BDC3C7;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .blog-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-date {
+            color: var(--teal);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--navy);
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .blog-link {
+            color: var(--blue);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: auto;
+        }
+
+        .blog-link:hover {
+            color: var(--teal);
+            gap: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin: 20px;
+            text-align: center;
+            opacity: 0;
+            position: absolute;
+            transition: var(--transition);
+            transform: scale(0.9);
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            position: relative;
+            transform: scale(1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding: 0 20px;
+            color: var(--text-light);
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: """;
+            font-size: 60px;
+            color: var(--teal);
+            opacity: 0.2;
+            position: absolute;
+        }
+
+        .testimonial-text:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text:after {
+            content: """;
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--teal);
+            transform: scale(1.2);
+        }
+
+        /* Impact Statistics */
+        .impact {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .impact .section-title {
+            color: white;
+        }
+
+        .impact .section-title:after {
+            background: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Strip */
+        .cta-strip {
+            background-color: var(--red);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .cta-strip .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .cta-title {
+            color: white;
+            margin-bottom: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--red);
+        }
+
+        .cta-btn:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--teal);
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .social-icon:hover {
+            background: var(--teal);
+            transform: translateY(-5px) rotate(5deg);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background-color: var(--navy);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .dropdown {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                display: none;
+                margin-top: 10px;
+            }
+            
+            .nav-item:hover .dropdown {
+                display: block;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .mv-container,
+            .leadership-grid,
+            .programs-grid,
+            .blog-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .mv-card,
+            .leader-card,
+            .program-card,
+            .blog-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn,
+            .cta-buttons .btn {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .mv-card,
+            .leader-card,
+            .program-card,
+            .blog-card {
+                padding: 20px;
+            }
+            
+            .leader-img {
+                height: 220px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-col h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .mv-title {
+                font-size: 1.3rem;
+            }
+            
+            .leader-name {
+                font-size: 1.2rem;
+            }
+            
+            .program-title,
+            .blog-title {
+                font-size: 1.2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <div class="logo-img">
+                        <img src="C:\Users\17176\OneDrive\Desktop\VNF\logo.png" alt="Visionary Norman Foundation Logo">
+                    </div>
+                    <a href="#" class="logo">Visionary Norman<span>Foundation</span></a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                        <ul class="dropdown">
+                            <li class="dropdown-item"><a href="#mission">Mission & Vision</a></li>
+                            <li class="dropdown-item"><a href="#leadership">Leadership</a></li>
+                            <li class="dropdown-item"><a href="#">Our Story</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Programs</a>
+                        <ul class="dropdown">
+                            <li class="dropdown-item"><a href="#">Education</a></li>
+                            <li class="dropdown-item"><a href="#">Health</a></li>
+                            <li class="dropdown-item"><a href="#">Youth Empowerment</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Get Involved</a>
+                        <ul class="dropdown">
+                            <li class="dropdown-item"><a href="#donate-section">Donate</a></li>
+                            <li class="dropdown-item"><a href="#">Volunteer</a></li>
+                            <li class="dropdown-item"><a href="#">Partnerships</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#scholarship" class="nav-link">Scholarships</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Media</a>
+                        <ul class="dropdown">
+                            <li class="dropdown-item"><a href="#blog">News & Blog</a></li>
+                            <li class="dropdown-item"><a href="#">Gallery</a></li>
+                            <li class="dropdown-item"><a href="#">Testimonials</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero">
+        <div class="hero-carousel">
+            <!-- Replace these placeholder image paths with your actual image paths -->
+            <div class="carousel-slide active" style="background-image: url('C:\Users\17176\OneDrive\Desktop\VNF\WhatsApp-Image-at-AM-1-2.jpg');"></div>
+            <div class="carousel-slide" style="background-image: url('https://www.google.com/imgres?q=visionary%20norman%20foundation&imgurl=https%3A%2F%2Fnewsghana.com.gh%2Fwp-content%2Fuploads%2F2023%2F07%2FWhatsApp-Image-at-AM-1-2.jpeg&imgrefurl=https%3A%2F%2Fwww.newsghana.com.gh%2Fvisionary-norman-foundation-empowers-adolescents%2F&docid=gcp2pOETwf_WgM&tbnid=mYXcVPiZN9OLmM&vet=12ahUKEwjJ2ZyVr8OPAxULQkEAHf5aB6YQM3oECB4QAA..i&w=1280&h=854&hcb=2&ved=2ahUKEwjJ2ZyVr8OPAxULQkEAHf5aB6YQM3oECB4QAA');"></div>
+            <div class="carousel-slide" style="background-image: url('https://www.google.com/imgres?q=visionary%20norman%20foundation&imgurl=https%3A%2F%2Fcitinewsroom.com%2Fwp-content%2Fuploads%2F2023%2F07%2FNorvan-Foundation-Lambussie-3.jpg&imgrefurl=https%3A%2F%2Fcitinewsroom.com%2F2023%2F07%2Flambussie-visionary-norman-foundation-empowers-adolescents-fosters-positive-change%2F&docid=5MdNQAYe5dpLQM&tbnid=VQrdTkeLrahjZM&vet=12ahUKEwjJ2ZyVr8OPAxULQkEAHf5aB6YQM3oECCEQAA..i&w=1242&h=933&hcb=2&ved=2ahUKEwjJ2ZyVr8OPAxULQkEAHf5aB6YQM3oECCEQAA');"></div>
+            <div class="carousel-slide" style="background-image: url('https://www.google.com/imgres?q=visionary%20norman%20foundation&imgurl=http%3A%2F%2Fwww.myjoyonline.com%2Fwp-content%2Fuploads%2F2024%2F10%2F4.jpeg&imgrefurl=https%3A%2F%2Fwww.myjoyonline.com%2Fvisionary-norman-foundation-supports-kyeaboso-d-a-basic-school-with-donations-and-eye-screening%2F&docid=NHTKvNsiy67vRM&tbnid=poWkCRRmalh9sM&vet=12ahUKEwjJ2ZyVr8OPAxULQkEAHf5aB6YQM3oECCoQAA..i&w=800&h=534&hcb=2&ved=2ahUKEwjJ2ZyVr8OPAxULQkEAHf5aB6YQM3oECCoQAA');"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Empowering Youth, Transforming Communities</h1>
+                <p class="hero-subtitle">Through education, health initiatives, leadership development, and philanthropic efforts, we're building a brighter future for all.</p>
+                <div class="hero-buttons">
+                    <a href="#scholarship" class="btn">Apply for Scholarship</a>
+                    <a href="#donate-section" class="btn btn-red">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="section intro">
+        <div class="container">
+            <div class="intro-text fade-in">
+                <p>The Visionary Norman Foundation is dedicated to creating sustainable change in communities by investing in the potential of young people. Through our comprehensive programs, we provide resources, opportunities, and support systems that empower youth to become leaders and change-makers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section id="mission" class="section mission-vision">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <div class="mv-container">
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="mv-title">Our Mission</h3>
+                    <p>To empower individuals and communities through education, health, leadership, and philanthropy. We are guided by principles of empowerment, collaboration, innovation, equity, and inclusion to build a society where all people have equal access to essential needs, quality education, reliable healthcare, and meaningful opportunities for growth.</p>
+                </div>
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="mv-title">Our Vision</h3>
+                    <p>We envision a world rooted in equity, dignity, and sustainable development where transformative change arises when communities are equipped with resources, knowledge, and collective spirit to overcome adversity and chart their own course toward prosperity and well-being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="section">
+        <div class="container">
+            <h2 class="section-title">Our Leadership</h2>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-img"></div>
+                    <div class="leader-content">
+                        <h3 class="leader-name">Abraham Norman Nortey</h3>
+                        <p class="leader-role">Founder & CEO</p>
+                        <p class="leader-bio">A recognized Ghanaian public health advocate, medical student, researcher, and distinguished leader in youth empowerment and community development. Recipient of the Kofi Annan Youth Inspirational Award and former President of the UCC Students Representative Council with multiple publications on public health topics.</p>
+                        <div class="leader-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img"></div>
+                    <div class="leader-content">
+                        <h3 class="leader-name">Dr. Abena Yeboah</h3>
+                        <p class="leader-role">Director</p>
+                        <p class="leader-bio">Ayawaso East Municipal Health Director who brings extensive public health expertise and outreach design to the foundation. She plays a crucial role in developing and implementing health initiatives that serve communities across Ghana.</p>
+                        <div class="leader-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leader-card">
+                    <div class="leader-img"></div>
+                    <div class="leader-content">
+                        <h3 class="leader-name">Dr. Sussie Anku</h3>
+                        <p class="leader-role">Medical Doctor & Reproductive Health Counselor</p>
+                        <p class="leader-bio">Leads adolescent health initiatives with a focus on reproductive health education and services. She has been instrumental in developing programs that address teenage pregnancy and provide comprehensive sexuality education in underserved communities.</p>
+                        <div class="leader-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div class="program-img" style="background-color: #A6ACAF;"></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Reproductive Health Education</h3>
+                        <p class="program-desc">Comprehensive sexuality education, health screenings, and contraceptive services targeting adolescents to address teenage pregnancy and early marriage in vulnerable communities.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-img" style="background-color: #A6ACAF;"></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Health Fairs & Blood Drives</h3>
+                        <p class="program-desc">Free medical screenings, genetic counseling, blood donation mobilization, and health literacy campaigns in partnership with healthcare organizations.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="program-card fade-in">
+                    <div class="program-img" style="background-color: #A6ACAF;"></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Feed the Street Initiative</h3>
+                        <p class="program-desc">Food distribution programs providing hot meals and essential supplies to vulnerable populations across Greater Accra, Cape Coast, and Volta regions.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scholarship Teaser -->
+    <section id="scholarship" class="scholarship-teaser">
+        <div class="container">
+            <div class="scholarship-content fade-in">
+                <h2 class="scholarship-title">Scholarship Opportunities</h2>
+                <p class="scholarship-text">We believe financial constraints should never hinder education. Our scholarship programs support talented students in pursuing their academic dreams and building better futures.</p>
+                <a href="#" class="btn">Learn More & Apply</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">Latest News & Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-card fade-in">
+                    <div class="blog-img" style="background-color: #A6ACAF;"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">February 2024</div>
+                        <h3 class="blog-title">Feed the Street Reaches 800 in Cape Coast</h3>
+                        <p class="blog-excerpt">Our recent food distribution initiative provided meals to over 800 vulnerable people across neighborhoods in Cape Coast, restoring hope and dignity.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in">
+                    <div class="blog-img" style="background-color: #A6ACAF;"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">November 2024</div>
+                        <h3 class="blog-title">Health Fair & Blood Drive Success</h3>
+                        <p class="blog-excerpt">Partnering with Medicare Foundation, we provided free health checks, sickle cell awareness, and blood donation services to hundreds in Adabraka, Accra.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in">
+                    <div class="blog-img" style="background-color: #A6ACAF;"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">July 2023</div>
+                        <h3 class="blog-title">Lambussie Reproductive Health Outreach</h3>
+                        <p class="blog-excerpt">Our intensive program in Lambussie District addressed teenage pregnancy through education, health screenings, and community engagement with local chiefs.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What People Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial active">
+                    <p class="testimonial-text">The scholarship from Visionary Norman Foundation changed my life. I'm now the first in my family to attend university, pursuing a degree in medicine.</p>
+                    <h4 class="testimonial-author">Sarah Johnson</h4>
+                    <p class="testimonial-role">Scholarship Recipient</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Volunteering with this foundation has been incredibly rewarding. Seeing the direct impact of our work on youth development keeps me motivated.</p>
+                    <h4 class="testimonial-author">Michael Thompson</h4>
+                    <p class="testimonial-role">Volunteer</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">Our partnership with Visionary Norman Foundation has allowed us to extend our community health initiatives to reach twice as many people as before.</p>
+                    <h4 class="testimonial-author">Dr. Lisa Williams</h4>
+                    <p class="testimonial-role">Community Partner</p>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <div class="testimonial-dot active"></div>
+                <div class="testimonial-dot"></div>
+                <div class="testimonial-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="section impact">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-text">Students Supported</div>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="75">0</div>
+                    <div class="stat-text">Communities Transformed</div>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="1200">0</div>
+                    <div class="stat-text">Lives Impacted</div>
+                </div>
+                
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-count="35">0</div>
+                    <div class="stat-text">Programs Implemented</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section id="donate-section" class="cta-strip">
+        <div class="container">
+            <h3 class="cta-title">Join Us in Making a Difference</h3>
+            <div class="cta-buttons">
+                <a href="#" class="btn cta-btn">Donate</a>
+                <a href="#" class="btn cta-btn">Volunteer</a>
+                <a href="#" class="btn cta-btn">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Visionary Norman Foundation</h3>
+                    <p>Empowering youth and transforming communities through education, health, leadership, and philanthropy.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#mission">Mission & Vision</a>
+                        <a href="#leadership">Leadership</a>
+                        <a href="#">Our Programs</a>
+                        <a href="#scholarship">Scholarships</a>
+                        <a href="#blog">News & Blog</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="footer-links">
+                        <div><i class="fas fa-map-marker-alt"></i> 123 Community Drive, City, Country</div>
+                        <div><i class="fas fa-phone"></i> +1 (234) 567-8900</div>
+                        <div><i class="fas fa-envelope"></i> info@visionarynorman.org</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Visionary Norman Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Testimonial slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showTestimonial(index);
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Hero image carousel
+        const carouselSlides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            carouselSlides.forEach(slide => slide.classList.remove('active'));
+            carouselSlides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % carouselSlides.length;
+            showSlide(currentSlide);
+        }
+
+        // Change slide every 7 seconds
+        setInterval(nextSlide, 7000);
+
+        // Animated counters
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = Math.ceil(target / speed);
+                
+                if (count < target) {
+                    counter.innerText = Math.min(count + increment, target);
+                    setTimeout(animateCounters, 1);
+                }
+            });
+        }
+
+        // Leadership section animation
+        function animateLeadership() {
+            const leaderCards = document.querySelectorAll('.leader-card');
+            const leadershipSection = document.getElementById('leadership');
+            
+            if (!leadershipSection) return;
+            
+            const sectionTop = leadershipSection.getBoundingClientRect().top;
+            const sectionVisible = 150;
+            
+            if (sectionTop < window.innerHeight - sectionVisible) {
+                leaderCards.forEach(card => {
+                    card.classList.add('animate');
+                });
+                
+                // Remove the event listener after animation is triggered
+                window.removeEventListener('scroll', animateLeadership);
+            }
+        }
+
+        // Scroll animation for all elements
+        function checkFade() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                    
+                    // Animate counters when stats section comes into view
+                    if (element.parentElement.parentElement.classList.contains('impact')) {
+                        animateCounters();
+                    }
+                }
+            });
+            
+            // Check leadership animation
+            animateLeadership();
+        }
+
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+        
+        // Also specifically listen for leadership animation
+        window.addEventListener('scroll', animateLeadership);
+    </script>
+</body>
+</html>

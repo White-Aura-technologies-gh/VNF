@@ -273,82 +273,104 @@
             transition: var(--transition);
         }
 
-        /* Hero Section with Carousel */
-        .hero {
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Hero Section with Softened Overlay */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-        .hero-carousel {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
 
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-        .carousel-slide.active {
-            opacity: 1;
-        }
+.carousel-slide.active {
+    opacity: 1;
+}
 
-        .carousel-slide::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 82, 204, 0.8) 0%, rgba(0, 174, 239, 0.8) 100%);
-        }
+.carousel-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 82, 204, 0.4) 0%, rgba(0, 174, 239, 0.35) 100%);
+}
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            animation: fadeInUp 1s ease;
-            position: relative;
-            z-index: 2;
-        }
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    animation: fadeInUp 1s ease;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: white;
-            line-height: 1.2;
-        }
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            opacity: 0.9;
-        }
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    opacity: 0.95;
+    line-height: 1.5;
+}
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    padding: 16px 36px;
+    border: 2px solid transparent;
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.hero-buttons .btn-red {
+    background-color: var(--red);
+    border-color: rgba(255, 255, 255, 0.3);
+}
 
         /* Intro Section */
         .intro {
@@ -869,6 +891,44 @@
             transition: var(--transition);
             color: white;
         }
+
+/* Responsive adjustments for hero section */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: -0.25px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
 
         .social-icon:hover {
             background: var(--teal);
@@ -1568,3 +1628,4 @@
 </body>
 
 </html>
+

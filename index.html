@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* ===== VARIABLES ===== */
         :root {
+            /* Colors */
             --blue: #0052CC;
             --red: #E63946;
             --green: #7BC043;
@@ -17,10 +19,18 @@
             --white: #FFFFFF;
             --text: #333333;
             --text-light: #5A6A85;
+            
+            /* Effects */
             --shadow: 0 5px 15px rgba(10, 26, 47, 0.1);
+            --shadow-heavy: 0 8px 25px rgba(10, 26, 47, 0.15);
             --transition: all 0.3s ease;
+            
+            /* Spacing */
+            --section-padding: 80px 0;
+            --container-width: 1200px;
         }
 
+        /* ===== GLOBAL STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -61,54 +71,13 @@
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 15px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background-color: var(--blue);
-            color: white;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-        }
-
-        .btn:hover {
-            background-color: var(--teal);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-red {
-            background-color: var(--red);
-        }
-
-        .btn-red:hover {
-            background-color: #c1121f;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--blue);
-            color: var(--blue);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--blue);
-            color: white;
-        }
-
         .section {
-            padding: 80px 0;
+            padding: var(--section-padding);
         }
 
         .bg-gray {
@@ -131,7 +100,49 @@
             border-radius: 2px;
         }
 
-        /* Header & Navigation */
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--blue);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--teal);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .btn-red {
+            background-color: var(--red);
+        }
+
+        .btn-red:hover {
+            background-color: #c1121f;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--blue);
+            color: white;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
         header {
             position: fixed;
             top: 0;
@@ -273,109 +284,108 @@
             transition: var(--transition);
         }
 
-        /* Hero Section with Softened Overlay */
-.hero {
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    color: white;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-.hero-carousel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-.carousel-slide.active {
-    opacity: 1;
-}
+        .carousel-slide.active {
+            opacity: 1;
+        }
 
-.carousel-slide::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 82, 204, 0.4) 0%, rgba(0, 174, 239, 0.35) 100%);
-}
+        .carousel-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.4) 0%, rgba(0, 174, 239, 0.35) 100%);
+        }
 
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    animation: fadeInUp 1s ease;
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-.hero-title {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: white;
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
 
-.hero-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 2.5rem;
-    font-weight: 400;
-    opacity: 0.95;
-    line-height: 1.5;
-}
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
 
-.hero-buttons .btn {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    font-weight: 700;
-    padding: 16px 36px;
-    border: 2px solid transparent;
-}
+        .hero-buttons .btn {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            font-weight: 700;
+            padding: 16px 36px;
+            border: 2px solid transparent;
+        }
 
-.hero-buttons .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-}
+        .hero-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
 
-.hero-buttons .btn-red {
-    background-color: var(--red);
-    border-color: rgba(255, 255, 255, 0.3);
-}
+        .hero-buttons .btn-red {
+            background-color: var(--red);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
 
-        /* Intro Section */
+        /* ===== INTRO SECTION ===== */
         .intro {
             text-align: center;
-            padding: 80px 0;
         }
 
         .intro-text {
@@ -385,11 +395,7 @@
             color: var(--text-light);
         }
 
-        /* Mission & Vision Section - Made Responsive */
-        .mission-vision {
-            background-color: var(--gray);
-        }
-
+        /* ===== MISSION & VISION SECTION ===== */
         .mv-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -410,7 +416,7 @@
 
         .mv-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-heavy);
         }
 
         .mv-icon {
@@ -430,7 +436,7 @@
             line-height: 1.6;
         }
 
-        /* Leadership Section */
+        /* ===== LEADERSHIP SECTION ===== */
         .leadership-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -467,7 +473,7 @@
 
         .leader-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-heavy);
         }
 
         .leader-img {
@@ -523,84 +529,211 @@
             transform: translateY(-3px);
         }
 
-        /* Programs Section */
+        /* ===== PROGRAMS SECTION ===== */
         .programs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
 
         .program-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .program-img {
-            height: 200px;
-            background-color: var(--gray);
-            background-size: cover;
-            background-position: center;
+            background: transparent;
+            border-radius: 14px;
+            overflow: visible;
+            box-shadow: none;
+            height: 340px;
+            perspective: 1200px;
             position: relative;
         }
 
-        .program-img:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        .program-card-inner {
+            position: relative;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--blue), var(--teal));
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
         }
 
-        .program-content {
-            padding: 25px;
+        .program-card:hover .program-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .program-card-front,
+        .program-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .program-card-back {
+            transform: rotateY(180deg);
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+            color: white;
+        }
+
+        /* Front card styles */
+        .program-card-front {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: white;
+        }
+
+        .program-card-front.health-education {
+            background: linear-gradient(135deg, rgba(59, 7, 100, 0.9) 0%, rgba(113, 23, 185, 0.9) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%233B0764" /><path d="M0 0L100 100" stroke="%234A1B7A" stroke-width="2" /><path d="M100 0L0 100" stroke="%234A1B7A" stroke-width="2" /></svg>');
+        }
+
+        .program-card-front.health-fairs {
+            background: linear-gradient(135deg, rgba(0, 128, 128, 0.9) 0%, rgba(0, 166, 166, 0.9) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23008080" /><circle cx="50" cy="50" r="40" fill="%2300A0A0" /></svg>');
+        }
+
+        .program-card-front.food-initiative {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.9) 0%, rgba(245, 158, 11, 0.9) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23D97706" /><path d="M25 25L75 75" stroke="%23E5920C" stroke-width="4" /><path d="M75 25L25 75" stroke="%23E5920C" stroke-width="4" /></svg>');
+        }
+
+        .program-card-front.women-empowerment {
+            background: linear-gradient(135deg, rgba(10, 26, 47, 0.9) 0%, rgba(20, 40, 65, 0.9) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230A1A2F" /><path d="M0 0L100 100" stroke="%23152A43" stroke-width="2" /><path d="M100 0L0 100" stroke="%23152A43" stroke-width="2" /></svg>');
+        }
+
+        .program-card-front.education-support {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(51, 85, 195, 0.9) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231E3A8A" /><rect x="25" y="25" width="50" height="50" fill="%23284CA8" /></svg>');
+        }
+
+        .program-card-front.environment {
+            background: linear-gradient(135deg, rgba(22, 101, 52, 0.9) 0%, rgba(34, 139, 34, 0.9) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23166534" /><circle cx="50" cy="50" r="30" fill="%23197A3D" /></svg>');
         }
 
         .program-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--navy);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .program-desc {
-            color: var(--text-light);
             margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.5;
         }
 
-        /* Scholarship Teaser */
-        .scholarship-teaser {
-            background: linear-gradient(to right, var(--blue), var(--teal));
+        .learn-more {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        .learn-more i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .program-card:hover .learn-more i {
+            transform: translateX(5px);
+        }
+
+        /* Back card content */
+        .program-back-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .program-back-desc {
+            margin-bottom: 25px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .program-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--teal);
             color: white;
-            text-align: center;
-            padding: 60px 0;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .program-btn:hover {
+            background-color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        /* ===== SCHOLARSHIP SECTION ===== */
+        .scholarship-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
         .scholarship-content {
-            max-width: 800px;
-            margin: 0 auto;
+            flex: 1;
         }
 
         .scholarship-title {
-            color: white;
+            font-size: 2.2rem;
             margin-bottom: 20px;
+            color: var(--navy);
         }
 
         .scholarship-text {
-            margin-bottom: 30px;
             font-size: 1.1rem;
-            opacity: 0.9;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
-        /* Blog Section - Made Responsive */
+        .scholarship-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--blue);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .scholarship-btn:hover {
+            background-color: var(--teal);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .scholarship-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            background-color: #f0f0f0;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+        }
+
+        /* ===== BLOG SECTION ===== */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -613,131 +746,104 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            display: flex;
-            flex-direction: column;
         }
 
         .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-heavy);
         }
 
         .blog-img {
             height: 200px;
-            background-color: #BDC3C7;
-            background-size: cover;
-            background-position: center;
-            flex-shrink: 0;
+            background-color: #A6ACAF;
         }
 
         .blog-content {
             padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            background: white;
         }
 
         .blog-date {
             color: var(--teal);
-            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 10px;
+            font-size: 0.9rem;
         }
 
         .blog-title {
             font-size: 1.3rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: var(--navy);
-            line-height: 1.3;
         }
 
         .blog-excerpt {
             color: var(--text-light);
             margin-bottom: 20px;
-            flex-grow: 1;
+            line-height: 1.5;
         }
 
         .blog-link {
             color: var(--blue);
             font-weight: 600;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            gap: 5px;
-            margin-top: auto;
+            gap: 8px;
         }
 
         .blog-link:hover {
             color: var(--teal);
-            gap: 10px;
+            gap: 12px;
         }
 
-        /* Testimonials */
+        /* ===== TESTIMONIALS SECTION ===== */
         .testimonials-container {
-            max-width: 1000px;
-            margin: 0 auto;
             position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 200px;
         }
 
         .testimonial {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            margin: 20px;
-            text-align: center;
-            opacity: 0;
             position: absolute;
-            transition: var(--transition);
-            transform: scale(0.9);
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            text-align: center;
         }
 
         .testimonial.active {
             opacity: 1;
-            position: relative;
-            transform: scale(1);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
         }
 
         .testimonial-text {
+            font-size: 1.2rem;
             font-style: italic;
+            color: var(--text);
             margin-bottom: 20px;
-            position: relative;
-            padding: 0 20px;
-            color: var(--text-light);
-        }
-
-        .testimonial-text:before,
-        .testimonial-text:after {
-            content: """;
-            font-size: 60px;
-            color: var(--teal);
-            opacity: 0.2;
-            position: absolute;
-        }
-
-        .testimonial-text:before {
-            top: -20px;
-            left: -10px;
-        }
-
-        .testimonial-text:after {
-            content: """;
-            bottom: -40px;
-            right: -10px;
+            line-height: 1.6;
         }
 
         .testimonial-author {
-            font-weight: 600;
+            font-size: 1.1rem;
             color: var(--navy);
+            margin-bottom: 5px;
         }
 
         .testimonial-role {
-            color: var(--text-light);
-            font-size: 0.9rem;
+            color: var(--teal);
+            font-weight: 600;
         }
 
         .testimonial-nav {
             display: flex;
             justify-content: center;
+            gap: 10px;
             margin-top: 30px;
         }
 
@@ -746,7 +852,6 @@
             height: 12px;
             border-radius: 50%;
             background: #ddd;
-            margin: 0 5px;
             cursor: pointer;
             transition: var(--transition);
         }
@@ -756,21 +861,7 @@
             transform: scale(1.2);
         }
 
-        /* Impact Statistics */
-        .impact {
-            background: linear-gradient(135deg, var(--blue) 0%, var(--teal) 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .impact .section-title {
-            color: white;
-        }
-
-        .impact .section-title:after {
-            background: var(--white);
-        }
-
+        /* ===== IMPACT STATISTICS ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -778,64 +869,57 @@
         }
 
         .stat-item {
-            padding: 20px;
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
         }
 
         .stat-number {
             font-size: 3rem;
-            font-weight: 700;
+            font-weight: 800;
+            color: var(--teal);
             margin-bottom: 10px;
-            color: var(--white);
         }
 
         .stat-text {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            color: var(--text-light);
+            font-weight: 600;
         }
 
-        /* CTA Strip */
+        /* ===== CTA SECTION ===== */
         .cta-strip {
-            background-color: var(--red);
+            background-color: var(--navy);
             color: white;
             text-align: center;
-            padding: 40px 0;
-        }
-
-        .cta-strip .container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            padding: 60px 0;
         }
 
         .cta-title {
             color: white;
-            margin-bottom: 0;
+            margin-bottom: 30px;
+            font-size: 2rem;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
             justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .cta-btn {
-            background: white;
-            color: var(--red);
-        }
-
-        .cta-btn:hover {
-            background: var(--navy);
-            color: white;
-        }
-
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
             background-color: var(--navy);
             color: white;
-            padding: 60px 0 30px;
+            padding: 60px 0 20px;
         }
 
         .footer-grid {
@@ -857,27 +941,20 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
+            width: 50px;
             height: 2px;
-            background: var(--teal);
+            background-color: var(--teal);
         }
 
-        .footer-links {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--teal);
-            padding-left: 5px;
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .social-icons {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
         }
 
         .social-icon {
@@ -889,61 +966,254 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            color: white;
         }
-
-/* Responsive adjustments for hero section */
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.4rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .hero-buttons .btn {
-        width: 100%;
-        max-width: 280px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-        letter-spacing: -0.25px;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-}
 
         .social-icon:hover {
             background: var(--teal);
-            transform: translateY(-5px) rotate(5deg);
+            transform: translateY(-3px);
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+            padding-left: 5px;
+        }
+
+        .footer-links div {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Animations */
+        /* ===== CAROUSEL STYLES ===== */
+        .leadership-carousel,
+        .programs-carousel {
+            display: none;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .carousel-item {
+            flex: 0 0 85%;
+            margin: 0 7.5%;
+            scroll-snap-align: center;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-dot.active {
+            background: var(--teal);
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .carousel-arrow:hover {
+            background: var(--white);
+        }
+
+        .carousel-arrow.left {
+            left: 10px;
+        }
+
+        .carousel-arrow.right {
+            right: 10px;
+        }
+
+        /* ===== MODAL STYLES ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 26, 47, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-heavy);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--red);
+        }
+
+        .modal-title {
+            color: var(--navy);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            background-color: white;
+            transition: var(--transition);
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2);
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            min-height: 120px;
+            resize: vertical;
+            transition: var(--transition);
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--blue);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            background-color: var(--teal);
+            transform: translateY(-3px);
+        }
+
+        .volunteer-form {
+            text-align: center;
+        }
+
+        /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -966,10 +1236,28 @@
             transform: translateY(0);
         }
 
-        /* Responsive Design */
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 992px) {
             .hero-title {
                 font-size: 2.8rem;
+            }
+            
+            .scholarship-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .scholarship-image {
+                order: -1;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
             }
             
             .nav-menu {
@@ -1024,8 +1312,6 @@
             }
             
             .mv-container,
-            .leadership-grid,
-            .programs-grid,
             .blog-grid,
             .stats-grid {
                 grid-template-columns: 1fr;
@@ -1033,8 +1319,6 @@
             }
             
             .mv-card,
-            .leader-card,
-            .program-card,
             .blog-card {
                 max-width: 500px;
                 margin: 0 auto;
@@ -1050,15 +1334,37 @@
             .cta-buttons .btn {
                 margin-bottom: 10px;
             }
+            
+            /* Show mobile carousels on tablet and below */
+            .leadership-grid {
+                display: none;
+            }
+            
+            .leadership-carousel {
+                display: block;
+            }
+            
+            .programs-grid {
+                display: none;
+            }
+            
+            .programs-carousel {
+                display: block;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+                margin: 10% auto;
+            }
         }
 
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
             
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .section {
@@ -1085,11 +1391,25 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-item {
+                flex: 0 0 80%;
+                margin: 0 10%;
+            }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
+                letter-spacing: -0.25px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
             }
             
             .section-title {
@@ -1112,6 +1432,18 @@
             .stat-number {
                 font-size: 2.5rem;
             }
+            
+            .scholarship-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                padding: 25px 15px;
+            }
+        }
+        .program-title,
+        .program-back-title {
+            color: #fff !important;
         }
     </style>
 </head>
@@ -1133,23 +1465,18 @@
                         <ul class="dropdown">
                             <li class="dropdown-item"><a href="#mission">Mission & Vision</a></li>
                             <li class="dropdown-item"><a href="#leadership">Leadership</a></li>
-                            <li class="dropdown-item"><a href="#">Our Story</a></li>
+                            
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Programs</a>
-                        <ul class="dropdown">
-                            <li class="dropdown-item"><a href="#">Education</a></li>
-                            <li class="dropdown-item"><a href="#">Health</a></li>
-                            <li class="dropdown-item"><a href="#">Youth Empowerment</a></li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Get Involved</a>
                         <ul class="dropdown">
-                            <li class="dropdown-item"><a href="#donate-section">Donate</a></li>
-                            <li class="dropdown-item"><a href="#">Volunteer</a></li>
-                            <li class="dropdown-item"><a href="#">Partnerships</a></li>
+                            <li class="dropdown-item"><a href="#donate-section" onclick="openModal('donateModal')">Donate</a></li>
+                            <li class="dropdown-item"><a href="#" onclick="openModal('volunteerModal')">Volunteer</a></li>
+                            <li class="dropdown-item"><a href="#" onclick="openModal('partnerModal')">Partnerships</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -1159,12 +1486,11 @@
                         <a href="#" class="nav-link">Media</a>
                         <ul class="dropdown">
                             <li class="dropdown-item"><a href="#blog">News & Blog</a></li>
-                            <li class="dropdown-item"><a href="#">Gallery</a></li>
                             <li class="dropdown-item"><a href="#">Testimonials</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Contact</a>
+                        <a href="#contact" class="nav-link">Contact</a>
                     </li>
                 </ul>
                 
@@ -1181,19 +1507,15 @@
     <section class="hero">
         <div class="hero-carousel">
             <!-- Replace these placeholder image paths with your actual image paths -->
-            <div class="carousel-slide active" style="background-image: url('WhatsApp-Image-at-AM-1-2.jpg');"></div>
-            <div class="carousel-slide" style="background-image: url('vnf 2.jpeg');"></div>
-            <div class="carousel-slide" style="background-image: url('vnf 4.jpg');"></div>
-            <div class="carousel-slide" style="background-image: url('vnf 5.jpeg');"></div>
+            <div class="carousel-slide active" style="background-image: url('');"></div>
+            <div class="carousel-slide" style="background-image: url('https://placehold.co/1200x800/00AEEF/FFFFFF/png?text=Youth+Empowerment');"></div>
+            <div class="carousel-slide" style="background-image: url('https://placehold.co/1200x800/E63946/FFFFFF/png?text=Education+Programs');"></div>
+            <div class="carousel-slide" style="background-image: url('https://placehold.co/1200x800/7BC043/FFFFFF/png?text=Health+Initiatives');"></div>
         </div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Empowering Youth, Transforming Communities</h1>
                 <p class="hero-subtitle">Through education, health initiatives, leadership development, and philanthropic efforts, we're building a brighter future for all.</p>
-                <div class="hero-buttons">
-                    <a href="#scholarship" class="btn">Apply for Scholarship</a>
-                    <a href="#donate-section" class="btn btn-red">Donate Now</a>
-                </div>
             </div>
         </div>
     </section>
@@ -1231,94 +1553,322 @@
     </section>
 
     <!-- Leadership Section -->
-    <section id="leadership" class="section">
+    <section id="leadership" class="section leadership-section">
         <div class="container">
             <h2 class="section-title">Our Leadership</h2>
+            
+            <!-- Desktop Grid View -->
             <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-img"></div>
+                <div class="leader-card fade-in">
+                    <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Abraham+Norman');"></div>
                     <div class="leader-content">
                         <h3 class="leader-name">Abraham Norman Nortey</h3>
                         <p class="leader-role">Founder & CEO</p>
-                        <p class="leader-bio">A recognized Ghanaian public health advocate, medical student, researcher, and distinguished leader in youth empowerment and community development. Recipient of the Kofi Annan Youth Inspirational Award and former President of the UCC Students Representative Council with multiple publications on public health topics.</p>
+                        <p class="leader-bio">A recognized Ghanaian public health advocate, medical student, researcher, and distinguished leader in youth empowerment and community development.</p>
                         <div class="leader-social">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="leader-card">
-                    <div class="leader-img"></div>
+                <div class="leader-card fade-in">
+                    <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Dr.+Abena+Yeboah');"></div>
                     <div class="leader-content">
                         <h3 class="leader-name">Dr. Abena Yeboah</h3>
                         <p class="leader-role">Director</p>
-                        <p class="leader-bio">Ayawaso East Municipal Health Director who brings extensive public health expertise and outreach design to the foundation. She plays a crucial role in developing and implementing health initiatives that serve communities across Ghana.</p>
+                        <p class="leader-bio">Ayawaso East Municipal Health Director who brings extensive public health expertise and outreach design to the foundation.</p>
                         <div class="leader-social">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="leader-card">
-                    <div class="leader-img"></div>
+                <div class="leader-card fade-in">
+                    <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Dr.+Sussie+Anku');"></div>
                     <div class="leader-content">
                         <h3 class="leader-name">Dr. Sussie Anku</h3>
-                        <p class="leader-role">Medical Doctor & Reproductive Health Counselor</p>
-                        <p class="leader-bio">Leads adolescent health initiatives with a focus on reproductive health education and services. She has been instrumental in developing programs that address teenage pregnancy and provide comprehensive sexuality education in underserved communities.</p>
+                        <p class="leader-role">Head of Reproductive Health Services</p>
+                        <p class="leader-bio">Leads adolescent health initiatives with a focus on reproductive health education and services in underserved communities.</p>
                         <div class="leader-social">
                             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
+                </div>
+                <div class="leader-card fade-in">
+                    <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Lauren+Baaba+Annan');"></div>
+                    <div class="leader-content">
+                        <h3 class="leader-name">Lauren Baaba Annan</h3>
+                        <p class="leader-role">Tertiary Institutional Head</p>
+                        <p class="leader-bio">Coordinates tertiary outreach and student engagement, fostering leadership and academic excellence among youth.</p>
+                        <div class="leader-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="leader-card fade-in">
+                    <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Dr.+Abigail+Adu');"></div>
+                    <div class="leader-content">
+                        <h3 class="leader-name">Dr. Abigail Adu</h3>
+                        <p class="leader-role">Project Manager</p>
+                        <p class="leader-bio">Oversees project implementation and evaluation, ensuring impactful delivery of all foundation initiatives.</p>
+                        <div class="leader-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Carousel View -->
+            <div class="leadership-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-item">
+                        <div class="leader-card">
+                            <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Abraham+Norman');"></div>
+                            <div class="leader-content">
+                                <h3 class="leader-name">Abraham Norman Nortey</h3>
+                                <p class="leader-role">Founder & CEO</p>
+                                <p class="leader-bio">A recognized Ghanaian public health advocate, medical student, researcher, and distinguished leader in youth empowerment and community development.</p>
+                                <div class="leader-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="leader-card">
+                            <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Dr.+Abena+Yeboah');"></div>
+                            <div class="leader-content">
+                                <h3 class="leader-name">Dr. Abena Yeboah</h3>
+                                <p class="leader-role">Director</p>
+                                <p class="leader-bio">Ayawaso East Municipal Health Director who brings extensive public health expertise and outreach design to the foundation.</p>
+                                <div class="leader-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="leader-card">
+                            <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Dr.+Sussie+Anku');"></div>
+                            <div class="leader-content">
+                                <h3 class="leader-name">Dr. Sussie Anku</h3>
+                                <p class="leader-role">Head of Reproductive Health Services</p>
+                                <p class="leader-bio">Leads adolescent health initiatives with a focus on reproductive health education and services in underserved communities.</p>
+                                <div class="leader-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="leader-card">
+                            <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Lauren+Baaba+Annan');"></div>
+                            <div class="leader-content">
+                                <h3 class="leader-name">Lauren Baaba Annan</h3>
+                                <p class="leader-role">Tertiary Institutional Head</p>
+                                <p class="leader-bio">Coordinates tertiary outreach and student engagement, fostering leadership and academic excellence among youth.</p>
+                                <div class="leader-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="leader-card">
+                            <div class="leader-img" style="background-image: url('https://placehold.co/400x500/0A1A2F/FFFFFF/png?text=Dr.+Abigail+Adu');"></div>
+                            <div class="leader-content">
+                                <h3 class="leader-name">Dr. Abigail Adu</h3>
+                                <p class="leader-role">Project Manager</p>
+                                <p class="leader-bio">Oversees project implementation and evaluation, ensuring impactful delivery of all foundation initiatives.</p>
+                                <div class="leader-social">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-arrow left">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="carousel-arrow right">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Programs Section -->
-    <section class="section bg-gray">
+    <section class="section bg-gray programs-section">
         <div class="container">
             <h2 class="section-title">Our Programs</h2>
+            
+            <!-- Desktop Grid View -->
             <div class="programs-grid">
+                <!-- Reproductive Health Education Card -->
                 <div class="program-card fade-in">
-                    <div class="program-img" style="background-color: #A6ACAF;"></div>
-                    <div class="program-content">
-                        <h3 class="program-title">Reproductive Health Education</h3>
-                        <p class="program-desc">Comprehensive sexuality education, health screenings, and contraceptive services targeting adolescents to address teenage pregnancy and early marriage in vulnerable communities.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
+                    <div class="program-card-inner">
+                        <div class="program-card-front health-education">
+                            <h3 class="program-title">Reproductive Health Education</h3>
+                            <p class="program-desc">Comprehensive sexuality education, health screenings, and contraceptive services targeting adolescents.</p>
+                            <div class="learn-more">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="program-card-back">
+                            <h3 class="program-back-title">Reproductive Health Education</h3>
+                            <p class="program-back-desc">Empowering youth with knowledge and resources for healthy decisions and futures. Our programs address teenage pregnancy and provide comprehensive sexuality education.</p>
+                            <a href="#" class="program-btn">Learn More</a>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- Health Fairs & Blood Drives Card -->
                 <div class="program-card fade-in">
-                    <div class="program-img" style="background-color: #A6ACAF;"></div>
-                    <div class="program-content">
-                        <h3 class="program-title">Health Fairs & Blood Drives</h3>
-                        <p class="program-desc">Free medical screenings, genetic counseling, blood donation mobilization, and health literacy campaigns in partnership with healthcare organizations.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
+                    <div class="program-card-inner">
+                        <div class="program-card-front health-fairs">
+                            <h3 class="program-title">Health Fairs & Blood Drives</h3>
+                            <p class="program-desc">Free medical screenings, genetic counseling, blood donation mobilization, and health literacy campaigns.</p>
+                            <div class="learn-more">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="program-card-back">
+                            <h3 class="program-back-title">Health Fairs & Blood Drives</h3>
+                            <p class="program-back-desc">Promoting community wellness through accessible healthcare services and education. We partner with healthcare organizations to serve communities.</p>
+                            <a href="#" class="program-btn">Learn More</a>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- Feed the Street Initiative Card -->
                 <div class="program-card fade-in">
-                    <div class="program-img" style="background-color: #A6ACAF;"></div>
-                    <div class="program-content">
-                        <h3 class="program-title">Feed the Street Initiative</h3>
-                        <p class="program-desc">Food distribution programs providing hot meals and essential supplies to vulnerable populations across Greater Accra, Cape Coast, and Volta regions.</p>
-                        <a href="#" class="btn btn-outline">Learn More</a>
+                    <div class="program-card-inner">
+                        <div class="program-card-front food-initiative">
+                            <h3 class="program-title">Feed the Street Initiative</h3>
+                            <p class="program-desc">Food distribution programs providing hot meals and essential supplies to vulnerable populations.</p>
+                            <div class="learn-more">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="program-card-back">
+                            <h3 class="program-back-title">Feed the Street Initiative</h3>
+                            <p class="program-back-desc">Combating hunger and nourishing communities one meal at a time. We serve across Greater Accra, Cape Coast, and Volta regions.</p>
+                            <a href="#" class="program-btn">Learn More</a>
+                        </div>
                     </div>
+                </div>
+                
+                <!-- Women Empowerment Card -->
+                <div class="program-card fade-in">
+                    <div class="program-card-inner">
+                        <div class="program-card-front women-empowerment">
+                            <h3 class="program-title">Women Empowerment</h3>
+                            <p class="program-desc">Leadership training, skills development, and support programs designed to empower women and girls.</p>
+                            <div class="learn-more">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="program-card-back">
+                            <h3 class="program-back-title">Women Empowerment</h3>
+                            <p class="program-back-desc">Building confidence, skills, and opportunities for women leaders of tomorrow. Our programs help women become agents of change in their communities.</p>
+                            <a href="#" class="program-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Support Card -->
+                <div class="program-card fade-in">
+                    <div class="program-card-inner">
+                        <div class="program-card-front education-support">
+                            <h3 class="program-title">Education Support</h3>
+                            <p class="program-desc">Scholarships, tutoring, school supplies, and educational resources to ensure access to quality education.</p>
+                            <div class="learn-more">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="program-card-back">
+                            <h3 class="program-back-title">Education Support</h3>
+                            <p class="program-back-desc">Unlocking potential through education and opportunity for all youth. We ensure children have access to education regardless of socioeconomic background.</p>
+                            <a href="#" class="program-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Environmental Sustainability Card -->
+                <div class="program-card fade-in">
+                    <div class="program-card-inner">
+                        <div class="program-card-front environment">
+                            <h3 class="program-title">Environmental Sustainability</h3>
+                            <p class="program-desc">Community clean-up initiatives, tree planting campaigns, and environmental education programs.</p>
+                            <div class="learn-more">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="program-card-back">
+                            <h3 class="program-back-title">Environmental Sustainability</h3>
+                            <p class="program-back-desc">Caring for our planet while building sustainable communities for future generations. We promote sustainable practices and protect natural resources.</p>
+                            <a href="#" class="program-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Carousel View -->
+            <div class="programs-carousel">
+                <div class="carousel-container">
+                    <!-- Program cards will be duplicated here for mobile carousel -->
+                </div>
+                <div class="carousel-arrow left">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="carousel-arrow right">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Scholarship Teaser -->
-    <section id="scholarship" class="scholarship-teaser">
+    <!-- Scholarship Section-->
+    <section id="scholarship" class="section scholarship-section">
         <div class="container">
-            <div class="scholarship-content fade-in">
-                <h2 class="scholarship-title">Scholarship Opportunities</h2>
-                <p class="scholarship-text">We believe financial constraints should never hinder education. Our scholarship programs support talented students in pursuing their academic dreams and building better futures.</p>
-                <a href="#" class="btn">Learn More & Apply</a>
+            <div class="scholarship-container">
+                <div class="scholarship-content">
+                    <h2 class="scholarship-title">Scholarship Opportunities</h2>
+                    <p class="scholarship-text">We believe financial constraints should never hinder education. Our scholarship programs support talented students in pursuing their academic dreams and building better futures.</p>
+                    <a href="#" class="scholarship-btn">LEARN MORE & APPLY</a>
+                </div>
+                <div class="scholarship-image">
+                    [Image placeholder - add your scholarship image here]
+                </div>
             </div>
         </div>
     </section>
@@ -1329,7 +1879,7 @@
             <h2 class="section-title">Latest News & Blog</h2>
             <div class="blog-grid">
                 <div class="blog-card fade-in">
-                    <div class="blog-img" style="background-color: #A6ACAF;"></div>
+                    <div class="blog-img" style="background-image: url('https://placehold.co/600x400/0052CC/FFFFFF/png?text=Feed+the+Street');"></div>
                     <div class="blog-content">
                         <div class="blog-date">February 2024</div>
                         <h3 class="blog-title">Feed the Street Reaches 800 in Cape Coast</h3>
@@ -1339,7 +1889,7 @@
                 </div>
                 
                 <div class="blog-card fade-in">
-                    <div class="blog-img" style="background-color: #A6ACAF;"></div>
+                    <div class="blog-img" style="background-image: url('https://placehold.co/600x400/00AEEF/FFFFFF/png?text=Health+Fair');"></div>
                     <div class="blog-content">
                         <div class="blog-date">November 2024</div>
                         <h3 class="blog-title">Health Fair & Blood Drive Success</h3>
@@ -1349,7 +1899,7 @@
                 </div>
                 
                 <div class="blog-card fade-in">
-                    <div class="blog-img" style="background-color: #A6ACAF;"></div>
+                    <div class="blog-img" style="background-image: url('https://placehold.co/600x400/E63946/FFFFFF/png?text=Health+Outreach');"></div>
                     <div class="blog-content">
                         <div class="blog-date">July 2023</div>
                         <h3 class="blog-title">Lambussie Reproductive Health Outreach</h3>
@@ -1398,22 +1948,22 @@
             <h2 class="section-title">Our Impact</h2>
             <div class="stats-grid">
                 <div class="stat-item fade-in">
-                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-number" data-count="500">500+</div>
                     <div class="stat-text">Students Supported</div>
                 </div>
                 
                 <div class="stat-item fade-in">
-                    <div class="stat-number" data-count="75">0</div>
+                    <div class="stat-number" data-count="75">75+</div>
                     <div class="stat-text">Communities Transformed</div>
                 </div>
                 
                 <div class="stat-item fade-in">
-                    <div class="stat-number" data-count="1200">0</div>
+                    <div class="stat-number" data-count="1200">1200+</div>
                     <div class="stat-text">Lives Impacted</div>
                 </div>
                 
                 <div class="stat-item fade-in">
-                    <div class="stat-number" data-count="35">0</div>
+                    <div class="stat-number" data-count="35">35+</div>
                     <div class="stat-text">Programs Implemented</div>
                 </div>
             </div>
@@ -1425,9 +1975,9 @@
         <div class="container">
             <h3 class="cta-title">Join Us in Making a Difference</h3>
             <div class="cta-buttons">
-                <a href="#" class="btn cta-btn">Donate</a>
-                <a href="#" class="btn cta-btn">Volunteer</a>
-                <a href="#" class="btn cta-btn">Partner With Us</a>
+                <a href="#" class="btn cta-btn" onclick="openModal('donateModal')">Donate</a>
+                <a href="#" class="btn cta-btn" onclick="openModal('volunteerModal')">Volunteer</a>
+                <a href="#" class="btn cta-btn" onclick="openModal('partnerModal')">Partner With Us</a>
             </div>
         </div>
     </section>
@@ -1452,18 +2002,17 @@
                     <div class="footer-links">
                         <a href="#mission">Mission & Vision</a>
                         <a href="#leadership">Leadership</a>
-                        <a href="#">Our Programs</a>
+                        <a href="#Our Programs">Our Programs</a>
                         <a href="#scholarship">Scholarships</a>
                         <a href="#blog">News & Blog</a>
                     </div>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col" id="contact">
                     <h3>Contact Us</h3>
                     <div class="footer-links">
-                        <div><i class="fas fa-map-marker-alt"></i> 123 Community Drive, City, Country</div>
-                        <div><i class="fas fa-phone"></i> +1 (234) 567-8900</div>
-                        <div><i class="fas fa-envelope"></i> info@visionarynorman.org</div>
+                        <div><i class="fas fa-phone"></i> +233 (024) 6154709</div>
+                        <div><i class="fas fa-envelope"></i> visionarynormanfoundation@gmail.com</div>
                     </div>
                 </div>
             </div>
@@ -1474,8 +2023,87 @@
         </div>
     </footer>
 
+    <!-- Donate Modal -->
+    <div id="donateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('donateModal')">&times;</span>
+            <h2 class="modal-title">Donate to Our Cause</h2>
+            <form id="donateForm" onsubmit="handleFormSubmit(event, 'donate')">
+                <div class="form-group">
+                    <label for="donateName" class="form-label">Name *</label>
+                    <input type="text" id="donateName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="donateEmail" class="form-label">Email *</label>
+                    <input type="email" id="donateEmail" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="donatePhone" class="form-label">Phone *</label>
+                    <input type="tel" id="donatePhone" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="donateOrganization" class="form-label">Organization</label>
+                    <input type="text" id="donateOrganization" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="donateMessage" class="form-label">Message</label>
+                    <textarea id="donateMessage" class="form-textarea"></textarea>
+                </div>
+                <input type="hidden" id="donatePurpose" value="donate">
+                <button type="submit" class="form-submit">Continue to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Partner Modal -->
+    <div id="partnerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('partnerModal')">&times;</span>
+            <h2 class="modal-title">Partner With Us</h2>
+            <form id="partnerForm" onsubmit="handleFormSubmit(event, 'partner')">
+                <div class="form-group">
+                    <label for="partnerName" class="form-label">Name *</label>
+                    <input type="text" id="partnerName" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="partnerEmail" class="form-label">Email *</label>
+                    <input type="email" id="partnerEmail" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="partnerPhone" class="form-label">Phone *</label>
+                    <input type="tel" id="partnerPhone" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="partnerOrganization" class="form-label">Organization</label>
+                    <input type="text" id="partnerOrganization" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="partnerMessage" class="form-label">Message</label>
+                    <textarea id="partnerMessage" class="form-textarea"></textarea>
+                </div>
+                <input type="hidden" id="partnerPurpose" value="partner">
+                <button type="submit" class="form-submit">Continue to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div id="volunteerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('volunteerModal')">&times;</span>
+            <h2 class="modal-title">Volunteer With Us</h2>
+            <form id="volunteerForm" class="volunteer-form" onsubmit="handleVolunteerSubmit(event)">
+                <div class="form-group">
+                    <label for="volunteerName" class="form-label">Name *</label>
+                    <input type="text" id="volunteerName" class="form-input" required>
+                </div>
+                <button type="submit" class="form-submit">Continue to WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // Navigation functionality
+        // ===== NAVIGATION FUNCTIONALITY =====
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
 
@@ -1489,7 +2117,7 @@
             navMenu.classList.remove("active");
         }));
 
-        // Smooth scrolling for navigation links
+        // ===== SMOOTH SCROLLING =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1507,7 +2135,7 @@
             });
         });
 
-        // Header scroll effect
+        // ===== HEADER SCROLL EFFECT =====
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -1517,7 +2145,7 @@
             }
         });
 
-        // Testimonial slider
+        // ===== TESTIMONIAL SLIDER =====
         const testimonials = document.querySelectorAll('.testimonial');
         const dots = document.querySelectorAll('.testimonial-dot');
         let currentTestimonial = 0;
@@ -1543,7 +2171,7 @@
             showTestimonial(currentTestimonial);
         }, 5000);
 
-        // Hero image carousel
+        // ===== HERO IMAGE CAROUSEL =====
         const carouselSlides = document.querySelectorAll('.carousel-slide');
         let currentSlide = 0;
 
@@ -1560,7 +2188,91 @@
         // Change slide every 7 seconds
         setInterval(nextSlide, 7000);
 
-        // Animated counters
+        // ===== LEADERSHIP CAROUSEL FUNCTIONALITY =====
+        const leadershipCarousel = document.querySelector('.leadership-carousel');
+        if (leadershipCarousel) {
+            const leadershipCarouselContainer = leadershipCarousel.querySelector('.carousel-container');
+            const leadershipItems = leadershipCarousel.querySelectorAll('.carousel-item');
+            const leadershipDots = leadershipCarousel.querySelectorAll('.carousel-dot');
+            const leadershipPrevBtn = leadershipCarousel.querySelector('.carousel-arrow.left');
+            const leadershipNextBtn = leadershipCarousel.querySelector('.carousel-arrow.right');
+            
+            let leadershipCurrentIndex = 0;
+            const leadershipItemCount = leadershipItems.length;
+
+            function updateLeadershipCarousel() {
+                leadershipCarouselContainer.style.transform = `translateX(-${leadershipCurrentIndex * 100}%)`;
+                leadershipDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === leadershipCurrentIndex);
+                });
+            }
+
+            leadershipPrevBtn.addEventListener('click', () => {
+                leadershipCurrentIndex = (leadershipCurrentIndex - 1 + leadershipItemCount) % leadershipItemCount;
+                updateLeadershipCarousel();
+            });
+
+            leadershipNextBtn.addEventListener('click', () => {
+                leadershipCurrentIndex = (leadershipCurrentIndex + 1) % leadershipItemCount;
+                updateLeadershipCarousel();
+            });
+
+            leadershipDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    leadershipCurrentIndex = index;
+                    updateLeadershipCarousel();
+                });
+            });
+        }
+
+        // ===== PROGRAMS CAROUSEL FUNCTIONALITY FOR MOBILE =====
+        const programsCarousel = document.querySelector('.programs-carousel');
+        if (programsCarousel) {
+            const programsCarouselContainer = programsCarousel.querySelector('.carousel-container');
+            const programsDots = programsCarousel.querySelectorAll('.carousel-dot');
+            const programsPrevBtn = programsCarousel.querySelector('.carousel-arrow.left');
+            const programsNextBtn = programsCarousel.querySelector('.carousel-arrow.right');
+            
+            // Clone program cards for mobile carousel
+            const programCards = document.querySelectorAll('.programs-grid .program-card');
+            programCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                const container = document.createElement('div');
+                container.className = 'carousel-item';
+                container.appendChild(clone);
+                programsCarouselContainer.appendChild(container);
+            });
+            
+            const programItems = programsCarousel.querySelectorAll('.carousel-item');
+            let programsCurrentIndex = 0;
+            const programsItemCount = programItems.length;
+
+            function updateProgramsCarousel() {
+                programsCarouselContainer.style.transform = `translateX(-${programsCurrentIndex * 100}%)`;
+                programsDots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === programsCurrentIndex);
+                });
+            }
+
+            programsPrevBtn.addEventListener('click', () => {
+                programsCurrentIndex = (programsCurrentIndex - 1 + programsItemCount) % programsItemCount;
+                updateProgramsCarousel();
+            });
+
+            programsNextBtn.addEventListener('click', () => {
+                programsCurrentIndex = (programsCurrentIndex + 1) % programsItemCount;
+                updateProgramsCarousel();
+            });
+
+            programsDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    programsCurrentIndex = index;
+                    updateProgramsCarousel();
+                });
+            });
+        }
+
+        // ===== ANIMATED COUNTERS =====
         const counters = document.querySelectorAll('.stat-number');
         const speed = 200;
         
@@ -1577,7 +2289,7 @@
             });
         }
 
-        // Leadership section animation
+        // ===== LEADERSHIP SECTION ANIMATION =====
         function animateLeadership() {
             const leaderCards = document.querySelectorAll('.leader-card');
             const leadershipSection = document.getElementById('leadership');
@@ -1597,7 +2309,7 @@
             }
         }
 
-        // Scroll animation for all elements
+        // ===== SCROLL ANIMATION FOR ALL ELEMENTS =====
         function checkFade() {
             const fadeElements = document.querySelectorAll('.fade-in');
             
@@ -1614,19 +2326,84 @@
                     }
                 }
             });
+        }
+
+        // ===== MODAL FUNCTIONALITY =====
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of modal content
+        window.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // ===== WHATSAPP FORM HANDLING =====
+        function handleFormSubmit(event, purpose) {
+            event.preventDefault();
             
-            // Check leadership animation
-            animateLeadership();
+            let name, email, phone, organization, message;
+            
+            if (purpose === 'donate') {
+                name = document.getElementById('donateName').value;
+                email = document.getElementById('donateEmail').value;
+                phone = document.getElementById('donatePhone').value;
+                organization = document.getElementById('donateOrganization').value;
+                message = document.getElementById('donateMessage').value;
+            } else if (purpose === 'partner') {
+                name = document.getElementById('partnerName').value;
+                email = document.getElementById('partnerEmail').value;
+                phone = document.getElementById('partnerPhone').value;
+                organization = document.getElementById('partnerOrganization').value;
+                message = document.getElementById('partnerMessage').value;
+            }
+            
+            // Format the WhatsApp message
+            const whatsappMessage = `Hello Visionary Norman Foundation Team,%0A%0AMy name is ${encodeURIComponent(name)}.%0A%0AI would like to ${purpose}.%0AHere are my details:%0A%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AOrganization: ${encodeURIComponent(organization || 'Not provided')}%0AMessage: ${encodeURIComponent(message || 'No message')}%0A%0AThank you, and I look forward to your response.%0ABest regards,%0A${encodeURIComponent(name)}`;
+            
+            // Replace with your actual WhatsApp number in international format (without +, 0, or special characters)
+            const whatsappNumber = '233530441589'; // Replace with your number
+            
+            // Open WhatsApp with the pre-filled message
+            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+            
+            // Close the modal
+            closeModal(purpose + 'Modal');
+        }
+
+        function handleVolunteerSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('volunteerName').value;
+            
+            // Format the WhatsApp message
+            const whatsappMessage = `Hello Visionary Norman Foundation Team,%0A%0AMy name is ${encodeURIComponent(name)}, and I would love to volunteer with your foundation.%0A%0AThank you.%0ABest regards,%0A${encodeURIComponent(name)}`;
+            
+            // Replace with your actual WhatsApp number in international format (without +, 0, or special characters)
+            const whatsappNumber = '233246154709'; // Replace with your number
+            
+            // Open WhatsApp with the pre-filled message
+            window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
+            
+            // Close the modal
+            closeModal('volunteerModal');
         }
 
         window.addEventListener('scroll', checkFade);
         window.addEventListener('load', checkFade);
-        
-        // Also specifically listen for leadership animation
         window.addEventListener('scroll', animateLeadership);
     </script>
 </body>
-
 </html>
-
-
